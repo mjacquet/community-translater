@@ -1,6 +1,6 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="/node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/salesforce-lightning-design-system.css">
 </head>
 <body>
 
