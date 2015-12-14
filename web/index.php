@@ -6,7 +6,7 @@
     What is the base language of the file?
     <select name="baseLanguage">
       <option value="French">French</option>
-      <option value="Englis">English</option>
+      <option value="English">English</option>
     </select>
     <input type="submit" value="Get French Translation" />
 </form>
