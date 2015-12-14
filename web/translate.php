@@ -9,7 +9,7 @@ if (!empty($_FILES))
     //echo "<pre>";
   //  print_r($_FILES);
 //  $file_get_contents($_FILES['file']['tmp_name']);
-  $xml=simplexml_load_file($_FILES['file']['tmp_name']) or die("Error: Cannot create object");
+  $xml=simplexml_load_file($_FILES['thefile']['tmp_name']) or die("Error: Cannot create object");
 
 }
 else die('you need to supply a file');
