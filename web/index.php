@@ -21,7 +21,25 @@
   </style>
 </head>
 <body>
-
+<div class="slds-container--center slds-container--small">
+  <div class="slds-page-header">Napili Community Translater</div>
+  <div class="slds-card">
+    <div class="slds-card__header slds-grid">
+      <div class="slds-media slds-media--center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
+            <use xlink:href="icons/standard-sprite/svg/symbols.svg#contact"></use>
+          </svg>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-text-heading--small slds-truncate">Important Information</h2>
+        </div>
+      </div>
+    </div>
+    <div class="slds-card__body">
+        <div class="slds-text-body--regular">Usual disclaimer apply</div>
+    </div>
+  </div
 <form enctype="multipart/form-data" action="translate.php" method="POST">
     <!-- MAX_FILE_SIZE must precede the file input field -->
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
@@ -49,6 +67,7 @@
 
     <input type="submit" value="Get French Translation" class="slds-button slds-button--brand"/>
 </form>
+</div>
 </body>
 </html>
 <?php
