@@ -1,5 +1,6 @@
 <html>
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="stylesheets/salesforce-lightning-design-system.css">
   <style>
@@ -83,24 +84,34 @@
     	//	if($a=="context")$context=(String)$b;
     	//}
     	foreach($component->field as $field){
-    		if((String)$field->attributes()->name=="HTML")					if(!isset($result[(String)$field->attributes()->exportcrc]['HTML']))$result[(String)$field->attributes()->exportcrc]['HTML']=(string)$field;
-    		foreach($field->property as $property){
+    		if((String)$field->attributes()->name=="HTML")
+            if(!isset($result[(String)$field->attributes()->exportcrc]['HTML']))
+                $result[(String)$field->attributes()->exportcrc]['HTML']=(string)$field;
+        if(count($field->property)==0){
+      			if(!isset($result[(String)$component->attributes()->context][(String)$field->attributes()->name]))
+      			$result[(String)$component->attributes()->context][(String)$field->attributes()->name]=(string)$field;
+        }
+        else{
+        foreach($field->property as $property){
     			if(!isset($result[(String)$component->attributes()->context][(String)$property->attributes()->name]))
     			$result[(String)$component->attributes()->context][(String)$property->attributes()->name]=(string)$property;
     		}
+        }
+
     	}
     }
 
 
-    $json=print_r(json_encode($result,JSON_UNESCAPED_UNICODE),true);
+    $json=json_encode($result,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
     echo'<div class="slds-form-element">
-      <label class="slds-form-element__label" for="sample2">EN-to-FR json</label>
+      <label class="slds-form-element__label" for="sample2">JSON Ready to translate!</label>
       <div class="slds-form-element__control">
     <textarea id="frtofr" class="slds-textarea" placeholder="" rows="20">'.$json.'</textarea>
     </div>
     </div>';
   }
+  ?>
 
 
 </form>

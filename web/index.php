@@ -1,5 +1,6 @@
 <html>
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="stylesheets/salesforce-lightning-design-system.css">
   <style>
