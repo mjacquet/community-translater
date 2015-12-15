@@ -80,6 +80,16 @@
     </div>
 </form>
 </div>
+<div>
+
+  <div class="slds-form-element">
+<label class="slds-form-element__label" for="sample2">FR-to-FR json</label>
+<div class="slds-form-element__control">
+  <textarea id="frtofr" class="slds-textarea" placeholder=""><? echo file_get_contents('json/FR-to-FR') ?></textarea>
+</div>
+</div>
+
+</div>
 </body>
 </html>
 <?php
