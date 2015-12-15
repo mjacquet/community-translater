@@ -21,9 +21,11 @@
 }
   </style>
   <script>
+  window.onload=function(){
   document.getElementById("uploadBtn").onchange = function () {
       document.getElementById("uploadFile").value = this.value;
       };
+  };
   </script>
 </head>
 <body>
@@ -44,8 +46,8 @@
     <div class="slds-card__body">
         <div class="slds-text-body--regular">This tool is not an official Salesforce Tool and is to be used at your own risk.</div>
     </div>
-  </div
-<form enctype="multipart/form-data" action="translate.php" method="POST">
+  </div>
+<form enctype="multipart/form-data" action="translate.php" method="POST" class="slds-form--stacked">
     <!-- MAX_FILE_SIZE must precede the file input field -->
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
     <!-- Name of input element determines name in $_FILES array -->
@@ -78,17 +80,17 @@
     <div class="slds-form-element">
       <input type="submit" value="Get French Translation" class="slds-button slds-button--brand"/>
     </div>
-</form>
-</div>
-<div>
+
+
 
   <div class="slds-form-element">
-<label class="slds-form-element__label" for="sample2">FR-to-FR json</label>
-<div class="slds-form-element__control">
-  <textarea id="frtofr" class="slds-textarea" placeholder=""><? echo file_get_contents('json/FR-to-FR') ?></textarea>
-</div>
-</div>
+    <label class="slds-form-element__label" for="sample2">FR-to-FR json</label>
+    <div class="slds-form-element__control">
+  <textarea id="frtofr" class="slds-textarea" placeholder="" rows="25"><? echo file_get_contents('json/FR-to-FR') ?></textarea>
+  </div>
+  </div>
 
+</form>
 </div>
 </body>
 </html>
