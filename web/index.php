@@ -1,6 +1,24 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="stylesheets/salesforce-lightning-design-system.css">
+  <style>
+  #uploadBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+  </style>
 </head>
 <body>
 
@@ -9,6 +27,14 @@
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
     <!-- Name of input element determines name in $_FILES array -->
     Upload the XML from site.com <input name="thefile" type="file" class="slds-button slds-button--brand"/>
+<div class="slds-form-element">
+      <input id="uploadFile" placeholder="Choose File" disabled="disabled" class="slds-input"/>
+      <div class="fileUpload btn btn-primary">
+          <span>Upload</span>
+          <input id="uploadBtn" name="thefile" type="file" class="slds-button slds-button--brand" />
+      </div>
+
+</div>
     What is the base language of the file?
 
     <div class="slds-form-element">
