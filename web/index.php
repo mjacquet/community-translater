@@ -86,7 +86,13 @@
   <div class="slds-form-element">
     <label class="slds-form-element__label" for="sample2">FR-to-FR json</label>
     <div class="slds-form-element__control">
-  <textarea id="frtofr" class="slds-textarea" placeholder="" rows="25"><? echo file_get_contents('json/FR-to-FR') ?></textarea>
+  <textarea id="frtofr" class="slds-textarea" placeholder="" rows="20"><? echo file_get_contents('json/FR-to-FR') ?></textarea>
+  </div>
+  </div>
+  <div class="slds-form-element">
+    <label class="slds-form-element__label" for="sample2">EN-to-FR json</label>
+    <div class="slds-form-element__control">
+  <textarea id="frtofr" class="slds-textarea" placeholder="" rows="20"><? echo file_get_contents('json/EN-to-FR') ?></textarea>
   </div>
   </div>
 
