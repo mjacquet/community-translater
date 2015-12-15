@@ -11,7 +11,8 @@
     font-size: 20px;
     cursor: pointer;
     opacity: 0;
-    filter: alpha(opacity=0);
+    width:100%;
+    height:100%;
 }
 .fileUpload {
     position: relative;
@@ -19,10 +20,14 @@
     margin: 10px;
 }
   </style>
+  <script>
+  document.getElementById("uploadBtn").onchange = function () {
+      document.getElementById("uploadFile").value = this.value;
+      };
+  </script>
 </head>
 <body>
 <div class="slds-container--center slds-container--small">
-  <div class="slds-page-header">Napili Community Translater</div>
   <div class="slds-card">
     <div class="slds-card__header slds-grid">
       <div class="slds-media slds-media--center slds-has-flexi-truncate">
@@ -32,12 +37,12 @@
           </svg>
         </div>
         <div class="slds-media__body">
-          <h2 class="slds-text-heading--small slds-truncate">Important Information</h2>
+          <h2 class="slds-text-heading--small slds-truncate">Napili Community Translater</h2>
         </div>
       </div>
     </div>
     <div class="slds-card__body">
-        <div class="slds-text-body--regular">Usual disclaimer apply</div>
+        <div class="slds-text-body--regular">This tool is not an official Salesforce Tool and is to be used at your own risk.</div>
     </div>
   </div
 <form enctype="multipart/form-data" action="translate.php" method="POST">
@@ -47,21 +52,22 @@
   <!--  Upload the XML from site.com <input name="thefile" type="file" class="slds-button slds-button--brand"/>-->
 <div class="slds-form--inline">
    <label class="slds-form-element__label" for="name">Upload the XML from site.com</label>
-<div class="slds-form-element">
-      <input id="uploadFile" placeholder="Choose File" disabled="disabled" class="slds-input"/>
-</div>
-<div class="slds-form-element">
-      <div class="fileUpload slds-button slds-button--brand">
-          <span class="">Upload</span>
-          <input id="uploadBtn" name="thefile" type="file"  />
-      </div>
 
+  <div class="slds-form-element">
+        <div class="fileUpload slds-button slds-button--brand">
+            <span class="">Upload</span>
+            <input id="uploadBtn" name="thefile" type="file"  />
+        </div>
+
+      </div>
+    <div class="slds-form-element">
+        <input id="uploadFile" placeholder="Choose File" disabled="disabled" class="slds-input"/>
+    </div>
 </div>
-</div>
-    What is the base language of the file?
+
 
     <div class="slds-form-element">
-      <label class="slds-form-element__label" for="selectSample1">Select Label</label>
+      <label class="slds-form-element__label" for="selectSample1">What is the base language of the file?</label>
       <div class="slds-form-element__control">
         <select id="baseLanguage" name="baseLanguage" class="slds-select">
           <option>French</option>
@@ -69,8 +75,9 @@
         </select>
       </div>
     </div>
-
-    <input type="submit" value="Get French Translation" class="slds-button slds-button--brand"/>
+    <div class="slds-form-element">
+      <input type="submit" value="Get French Translation" class="slds-button slds-button--brand"/>
+    </div>
 </form>
 </div>
 </body>
