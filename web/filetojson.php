@@ -31,7 +31,7 @@
   </script>
 </head>
 <body>
-<div class="slds-container--center slds-container--small">
+<div class="slds-container--center slds-container--medium">
   <div class="slds-card">
     <div class="slds-card__header slds-grid">
       <div class="slds-media slds-media--center slds-has-flexi-truncate">
@@ -71,7 +71,7 @@
 </div>
 
     <div class="slds-form-element">
-      <input type="submit" value="Get French Translation" class="slds-button slds-button--brand"/>
+      <input type="submit" value="Get JSON file" class="slds-button slds-button--brand"/>
     </div>
 
 
