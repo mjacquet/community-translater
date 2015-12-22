@@ -10,10 +10,10 @@ $client = new Postmark\PostmarkClient("1855200c-7830-4422-a59a-4835d3a6acd0");
 $sendResult = $client->sendEmail(
   "mjacquet@salesforce.com",
   "mjacquet@gmail.com",
-  "Nouvelle demande d'ajout Community Translater",
-  $_POST['properties']." -> ".$_POST['content']."   ".$_POST['custom']
+  "Contact Form Community Translater",
+  $_POST['properties']." : ".$_POST['content']."  : ".$_POST['custom']
 );
-file_put_contents('json-to-approve/'.$_POST['properties'].'-to-'.$_POST['content'],$_POST['custom']);
+
 echo '<div class="slds-notify slds-notify--success slds-theme--alert-texture" role="alert">
   <span class="slds-assistive-text">Info</span>
   <button class="slds-button slds-button--icon-inverse close slds-icon--small">
@@ -25,7 +25,7 @@ echo '<div class="slds-notify slds-notify--success slds-theme--alert-texture" ro
   <h2>
     <svg aria-hidden="true" class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small">
       <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#email"></use>
-    </svg>JSON submitted. We will review and publish it ASAP.</h2>
+    </svg>Message sent. </h2>
 </div>';
 
 }
@@ -57,7 +57,7 @@ echo '<div class="slds-notify slds-notify--success slds-theme--alert-texture" ro
               <div class="slds-button-group" role="group">
                 <button class="slds-button slds-button--neutral" onclick="window.location='index.php'">Tool Home</button>
                 <button class="slds-button slds-button--neutral" onclick="window.location='filetojson.php'">Generate JSON from file</button>
-                <button class="slds-button slds-button--neutral" onclick="window.location='contact.php'">Contact</button>
+                <button class="slds-button slds-button--neutral" onclick="window.location='submitjson.php'">Submit a translated JSON</button>
               <!--  <div class="slds-button--last">
                   <button class="slds-button slds-button--icon-border-filled">
                     <svg aria-hidden="true" class="slds-button__icon">
@@ -76,35 +76,35 @@ echo '<div class="slds-notify slds-notify--success slds-theme--alert-texture" ro
         </div>
       </div>
       <br>
-<form role="form" enctype="multipart/form-data" action="submitjson.php" method="POST" class="slds-form--stacked">
+<form role="form" enctype="multipart/form-data" action="contact.php" method="POST" class="slds-form--stacked">
       <div class="slds-card" style="padding:10px;">
         <div class="slds-card__header slds-grid">
           <div class="slds-media slds-media--center slds-has-flexi-truncate">
             <div class="slds-media__figure">
               <svg aria-hidden="true" class="slds-icon slds-icon--small" style="fill:#54698d">
-                <use xlink:href="icons/utility-sprite/svg/symbols.svg#upload"></use>
+                <use xlink:href="icons/action-sprite/svg/symbols.svg#email"></use>
               </svg>
             </div>
             <div class="slds-media__body">
-              <h2 class="slds-text-heading--small slds-truncate">Provide JSON and details</h2>
+              <h2 class="slds-text-heading--small slds-truncate">Contact Form</h2>
             </div>
           </div>
         </div>
         <div class="slds-card__body" >
           <div class="slds-form-element">
-            <label class="slds-form-element__label" for="sample1">Properties Language</label>
+            <label class="slds-form-element__label" for="sample1">Your Name</label>
             <div class="slds-form-element__control">
               <input class="slds-input" type="text" name="properties" />
             </div>
           </div>
           <div class="slds-form-element">
-            <label class="slds-form-element__label" for="sample1">Content Language</label>
+            <label class="slds-form-element__label" for="sample1">Your email</label>
             <div class="slds-form-element__control">
               <input class="slds-input" type="text" name="content" />
             </div>
           </div>
           <div class="slds-form--element">
-            <label class="slds-form-element__label" for="sample1">JSON content</label>
+            <label class="slds-form-element__label" for="sample1">Your message</label>
             <div class="slds-form-element__control">
               <textarea  class="slds-textarea" placeholder="" rows="10" name="custom"></textarea>
             </div>
@@ -113,7 +113,7 @@ echo '<div class="slds-notify slds-notify--success slds-theme--alert-texture" ro
     </div>
     <br>
     <div class="slds-form-element">
-      <input type="submit" value="Submit Translated JSON" class="slds-button slds-button--brand"/>
+      <input type="submit" value="Send Message" class="slds-button slds-button--brand"/>
     </div>
 </form>
 

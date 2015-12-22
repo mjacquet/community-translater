@@ -48,6 +48,7 @@
           <div class="slds-button-group" role="group">
             <button class="slds-button slds-button--neutral" onclick="window.location='filetojson.php'">Generate JSON from file</button>
             <button class="slds-button slds-button--neutral" onclick="window.location='submitjson.php'">Submit a translated JSON</button>
+            <button class="slds-button slds-button--neutral" onclick="window.location='contact.php'">Contact</button>
             <!--<div class="slds-button--last">
               <button class="slds-button slds-button--icon-border-filled">
                 <svg aria-hidden="true" class="slds-button__icon">
