@@ -32,17 +32,33 @@
 </head>
 <body>
 <div class="slds-container--center slds-container--medium">
-  <div class="slds-card">
+  <div class="slds-card" style="padding:10px;">
     <div class="slds-card__header slds-grid">
       <div class="slds-media slds-media--center slds-has-flexi-truncate">
         <div class="slds-media__figure">
-          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
-            <use xlink:href="icons/standard-sprite/svg/symbols.svg#contact"></use>
+          <svg aria-hidden="true" class="slds-icon slds-icon-custom-78 ">
+            <use xlink:href="icons/custom-sprite/svg/symbols.svg#custom78"></use>
           </svg>
         </div>
         <div class="slds-media__body">
           <h2 class="slds-text-heading--small slds-truncate">Napili Community Translater</h2>
         </div>
+
+         <div class="slds-col slds-no-flex slds-align-bottom">
+          <div class="slds-button-group" role="group">
+            <button class="slds-button slds-button--neutral" onclick="window.location='filetojson.php'">Generate JSON from file</button>
+            <button class="slds-button slds-button--neutral" onclick="window.location='submitjson.php'">Submit a translated JSON</button>
+            <!--<div class="slds-button--last">
+              <button class="slds-button slds-button--icon-border-filled">
+                <svg aria-hidden="true" class="slds-button__icon">
+                  <use xlink:href="icons/utility-sprite/svg/symbols.svg#down"></use>
+                </svg>
+                <span class="slds-assistive-text">More</span>
+              </button>
+            </div>-->
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="slds-card__body">
@@ -55,7 +71,7 @@
     <!-- Name of input element determines name in $_FILES array -->
   <!--  Upload the XML from site.com <input name="thefile" type="file" class="slds-button slds-button--brand"/>-->
 <br>
-  <div class="slds-card">
+  <div class="slds-card" >
     <div class="slds-card__header slds-grid">
       <div class="slds-media slds-media--center slds-has-flexi-truncate">
         <div class="slds-media__figure">
@@ -69,7 +85,7 @@
       </div>
     </div>
     <div class="slds-card__body" >
-      <div class="slds-form--inline" style="background:white;">
+      <div class="slds-form--inline" style="padding:10px;background:white;">
         <label class="slds-form-element__label" for="name">Upload the XML file you got from site.com (Languages --> Export for translation)</label>
 
         <div class="slds-form-element">

@@ -36,39 +36,76 @@
     <div class="slds-card__header slds-grid">
       <div class="slds-media slds-media--center slds-has-flexi-truncate">
         <div class="slds-media__figure">
-          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
-            <use xlink:href="icons/standard-sprite/svg/symbols.svg#contact"></use>
+          <svg aria-hidden="true" class="slds-icon slds-icon-custom-78 ">
+            <use xlink:href="icons/custom-sprite/svg/symbols.svg#custom78"></use>
           </svg>
         </div>
         <div class="slds-media__body">
           <h2 class="slds-text-heading--small slds-truncate">Napili Community Translater</h2>
         </div>
+
+         <div class="slds-col slds-no-flex slds-align-bottom">
+          <div class="slds-button-group" role="group">
+            <button class="slds-button slds-button--neutral" onclick="window.location='index.php'">Tool Home</button>
+            <button class="slds-button slds-button--neutral" onclick="window.location='submitjson.php'">Submit a translated JSON</button>
+          <!--  <div class="slds-button--last">
+              <button class="slds-button slds-button--icon-border-filled">
+                <svg aria-hidden="true" class="slds-button__icon">
+                  <use xlink:href="icons/utility-sprite/svg/symbols.svg#down"></use>
+                </svg>
+                <span class="slds-assistive-text">More</span>
+              </button>
+            </div>-->
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="slds-card__body">
         <div class="slds-text-body--regular">This tool is not an official Salesforce Tool and is to be used at your own risk.</div>
     </div>
   </div>
+
 <form enctype="multipart/form-data" action="filetojson.php" method="POST" class="slds-form--stacked">
+<br>
     <!-- MAX_FILE_SIZE must precede the file input field -->
     <? if (empty($_FILES)) echo'
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
     <!-- Name of input element determines name in $_FILES array -->
   <!--  Upload the XML from site.com <input name="thefile" type="file" class="slds-button slds-button--brand"/>-->
-<div class="slds-form--inline">
-   <label class="slds-form-element__label" for="name">Upload the XML from site.com</label>
 
-  <div class="slds-form-element">
-        <div class="fileUpload slds-button slds-button--brand">
-            <span class="">Upload</span>
-            <input id="uploadBtn" name="thefile" type="file"  />
+  <div class="slds-card">
+    <div class="slds-card__header slds-grid">
+      <div class="slds-media slds-media--center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <svg aria-hidden="true" class="slds-icon slds-icon--small" style="fill:#54698d">
+            <use xlink:href="icons/utility-sprite/svg/symbols.svg#upload"></use>
+          </svg>
         </div>
-
+        <div class="slds-media__body">
+          <h2 class="slds-text-heading--small slds-truncate">Upload the XML exported from site.com</h2>
+        </div>
       </div>
-    <div class="slds-form-element">
-        <input id="uploadFile" placeholder="Choose File" disabled="disabled" class="slds-input"/>
     </div>
-</div>
+    <div class="slds-card__body" >
+      <div class="slds-form--inline" style="background:white;">
+        <label class="slds-form-element__label" for="name">Upload the XML file you got from site.com (Languages --> Export for translation)</label>
+
+        <div class="slds-form-element">
+            <div class="fileUpload slds-button slds-button--brand">
+                <span class="">Upload</span>
+                <input id="uploadBtn" name="thefile" type="file"  />
+            </div>
+
+          </div>
+        <div class="slds-form-element">
+            <input id="uploadFile" placeholder="Choose File" disabled="disabled" class="slds-input"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
 
     <div class="slds-form-element">
       <input type="submit" value="Get JSON file" class="slds-button slds-button--brand"/>
@@ -105,7 +142,7 @@
     $json=json_encode($result,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
     echo'<div class="slds-form-element">
-      <label class="slds-form-element__label" for="sample2">JSON Ready to translate!</label>
+      <label class="slds-form-element__label" for="sample2">JSON Ready to be translated</label>
       <div class="slds-form-element__control">
     <textarea id="frtofr" class="slds-textarea" placeholder="" rows="20">'.$json.'</textarea>
     </div>
