@@ -32,7 +32,7 @@
 </head>
 <body>
 <div class="slds-container--center slds-container--medium">
-  <div class="slds-card">
+  <div class="slds-card" style="padding:10px;">
     <div class="slds-card__header slds-grid">
       <div class="slds-media slds-media--center slds-has-flexi-truncate">
         <div class="slds-media__figure">
@@ -89,7 +89,7 @@
       </div>
     </div>
     <div class="slds-card__body" >
-      <div class="slds-form--inline" style="background:white;">
+      <div class="slds-form--inline" style="background:white;padding:10px;">
         <label class="slds-form-element__label" for="name">Upload the XML file you got from site.com (Languages --> Export for translation)</label>
 
         <div class="slds-form-element">
