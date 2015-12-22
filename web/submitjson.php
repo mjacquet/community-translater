@@ -2,17 +2,32 @@
 if(isset($_POST['properties'])&&isset($_POST['content'])&&isset($_POST['custom'])&&$_POST['properties']!=''&&$_POST['content']!=''&&$_POST['custom']!='')
 {
   require_once('../vendor/autoload.php');
-  use Postmark\PostmarkClient;
+  //use Postmark\PostmarkClient;
 
 // Example request
-$client = new PostmarkClient("1855200c-7830-4422-a59a-4835d3a6acd0");
+$client = new Postmark\PostmarkClient("1855200c-7830-4422-a59a-4835d3a6acd0");
 
 $sendResult = $client->sendEmail(
   "mjacquet@salesforce.com",
-  "mjacquet@salesforce.com",
-  "Hello from Community Translater!",
-  $_POST['content']
+  "mjacquet@gmail.com",
+  "Nouvelle demande d'ajout Community Translater",
+  $_POST['properties']." -> ".$_POST['content']."   ".$_POST['custom']
 );
+file_put_contents('json-to-approve/'.$_POST['properties'].'-to-'.$_POST['content'],$_POST['custom']);
+echo '<div class="slds-notify slds-notify--success slds-theme--alert-texture" role="alert">
+  <span class="slds-assistive-text">Info</span>
+  <button class="slds-button slds-button--icon-inverse close slds-icon--small">
+    <svg aria-hidden="true" class="slds-button__icon">
+      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+    </svg>
+    <span class="slds-assistive-text">Close</span>
+  </button>
+  <h2>
+    <svg aria-hidden="true" class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small">
+      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#email"></use>
+    </svg>JSON submitted. We will review and publish it ASAP.</h2>
+</div>';
+
 }
 
  ?>

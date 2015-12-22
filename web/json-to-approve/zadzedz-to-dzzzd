@@ -1,0 +1,294 @@
+{
+    "main (Page)": {
+        "Title": "main\t\t",
+        "NavTitle": "main\t\t"
+    },
+    "Éditeur de recherche (Aura)": {
+        "allSwitcherLabel": "Tout",
+        "contactSupportLabel": "Contacter le support",
+        "continueLabel": "Vous ne trouvez pas ce que vous cherchez?",
+        "triggerLabel": "Poster à",
+        "selectTopicLabel": "Sélectionner la destination du Message",
+        "contineActionLabel": "Posez une nouvelle question",
+        "caseSubmitButtonLabel": "Soumettre en privé",
+        "questionsSwitcherLabel": "Questions",
+        "signInActionLabel": "Connectez-vous pour poser une question",
+        "caseQuickActionName": "NewCase",
+        "articlesSwitcherLabel": "Articles",
+        "privateTag": "Privé",
+        "placeholder": "Rechercher des articles et discussions",
+        "topicRequired": "(Obligatoire)"
+    },
+    "En-tête du profil (Aura)": {
+        "userSettingsLabel": "Mes paramètres",
+        "homeLabel": "Accueil",
+        "communitySetupLabel": "Configuration de la communauté",
+        "communityManagementLabel": "Gestion de la communauté?",
+        "loginLabel": "Connexion",
+        "contactSupportLabel": "Contacter le support",
+        "logoutLabel": "Déconnexion",
+        "viewProfileLabel": "Voir le Profil"
+    },
+    "Menu de navigation (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "En-tête de l'identité (Aura)": {
+        "headerText": "Lanceur d'app",
+        "homeLabel": "Accueil",
+        "loginLabel": "Connexion",
+        "logoutLabel": "Déconnexion"
+    },
+    "login (Page)": {
+        "Title": "Connexion\t\t",
+        "NavTitle": "Connexion\t\t"
+    },
+    "Record List (Widget)": {
+        "Title": "Liste des enregistrements\t\t",
+        "NavTitle": "Liste des enregistrements\t\t"
+    },
+    "Vue de liste de recherche d'enregistrement (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Contact Support (Widget)": {
+        "Title": "Contacter le Support\t\t",
+        "NavTitle": "Contacter le Support\t\t"
+    },
+    "Création d'une requête (Aura)": {
+        "deflectionSubHeader": "Regardez ces articles...",
+        "confirmationMessageTitle": "Votre requête a bien été soumise.",
+        "confirmationMessageDescription": "Nous reviendrons vers vous rapidement.",
+        "deflectionTitle": "Besoin d'une réponse rapide?",
+        "deflectionNotHelpful": "Vous n'avez pas trouvé ce que vous cherchiez?",
+        "headerTitle": "Contacter le Service Client"
+    },
+    "User Settings (Widget)": {
+        "Title": "Paramètres Utilisateurs\t\t",
+        "NavTitle": "Paramètres Utilisateurs\t\t"
+    },
+    "Paramètres utilisateur (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Article Detail (Widget)": {
+        "Title": "Détails Article\t\t",
+        "NavTitle": "Détails Article\t\t"
+    },
+    "Titre principal (Aura)": {
+        "bannerTextWithKnowledge": "Explorer d'autres <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles<\/a> et <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions<\/a> sur ce sujet.",
+        "bannerTextWithoutKnowledge": "Explorez d'autres <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions<\/a> sur ce sujet.",
+        "bannerText": "Un endroit pour trouver des réponses, et poser des questions",
+        "title": "Bienvenue!"
+    },
+    "selfService:singleArticleView (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "selfService:topicTrendingArticles (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Pied de page (Aura)": {
+        "askCommunityLabel": "Poser une question",
+        "headerLabel": "Vous ne trouvez pas ce que vous cherchez?",
+        "contactSupportLabel": "Contacter le support"
+    },
+    "Related Record List (Widget)": {
+        "Title": "Liste Enregistrements Liés\t\t",
+        "NavTitle": "Liste Enregistrements Liés\t\t"
+    },
+    "Liste d'enregistrements associée (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Record Detail (Widget)": {
+        "Title": "Détail de l'enregistrement\t\t",
+        "NavTitle": "Détail de l'enregistrement\t\t"
+    },
+    "Gros titre de l'enregistrement (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Informations de l'enregistrement (Aura)": {
+        "relatedTabLabel": "Lié",
+        "detailsTabLabel": "Détails",
+        "discussionsTabLabel": "Discussions"
+    },
+    "Error (Widget)": {
+        "Title": "Erreur\t\t",
+        "NavTitle": "Erreur\t\t"
+    },
+    "Texte enrichi (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Search (Widget)": {
+        "Title": "Recherche\t\t",
+        "NavTitle": "Recherche\t\t"
+    },
+    "Liste des résultats (Aura)": {
+        "articleTabLabel": "Articles",
+        "discussionTabLabel": "Discussions"
+    },
+    "User Profile (Widget)": {
+        "Title": "Profil Utilisateur\t\t",
+        "NavTitle": "Profil Utilisateur\t\t"
+    },
+    "Corps du profil utilisateur (Aura)": {
+        "maxTopics": "5",
+        "knowledgeableAboutTitle": "Compétent sur"
+    },
+    "Onglets du profil utilisateur (Aura)": {
+        "feedTabLabel": "Activités",
+        "casesTabLabel": "Requêtes",
+        "headerLabel": "Mes Requêtes",
+        "caseCreateLabel": "Nouvelle Requête"
+    },
+    "Home (Widget)": {
+        "Title": "Accueil\t\t",
+        "NavTitle": "Accueil\t\t"
+    },
+    "Demander à la communauté (Aura)": {
+        "label": "Demander à la communauté"
+    },
+    "RequestCallbackService (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Onglets d'accueil (Aura)": {
+        "discussionTabLabel": "Discussions",
+        "featuredTabLabel": "Selection",
+        "myFeedTabLabel": "Mon Flux"
+    },
+    "Recommandations (Aura)": {
+        "title": ""
+    },
+    "Classement de la réputation (Aura)": {
+        "title": "Classement"
+    },
+    "Rubriques tendance (Aura)": {
+        "title": "Sujets les plus discutés"
+    },
+    "Chatter Case Detail (Widget)": {
+        "Title": "Détail Chatter de la requête\t\t",
+        "NavTitle": "étail Chatter de la requête\t\t"
+    },
+    "Points clés de la requête (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Éditeur Chatter de requêtes (Aura)": {
+        "postButtonLabel": "Publication",
+        "placeholderText": "Rédigez un message...",
+        "mobileHeaderTitle": "Nouveau Message"
+    },
+    "Fil de requête (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Bouton Statut de la requête (Aura)": {
+        "inActiveStatusLabel": "Ré-Ouvrir la requête",
+        "activeStatusLabel": "Clôturer la requête"
+    },
+    "Détails de la requête (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Pièces jointes à la requête (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Basic Case Detail (Widget)": {
+        "Title": "Détail basique de la requête\t\t",
+        "NavTitle": "Détail basique de la requête\t\t"
+    },
+    "Éditeur de requêtes (Aura)": {
+        "postButtonLabel": "Commentaire",
+        "placeholderText": "Ecrire un nouveau commentaire...",
+        "mobileHeaderTitle": "Nouveau Commentaire"
+    },
+    "Commentaires de la requête (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Topic Detail (Widget)": {
+        "Title": "Détail de la rubrique\t\t",
+        "NavTitle": "Détail de la rubrique\t\t"
+    },
+    "Bouton Suivre (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Rubriques associées (Aura)": {
+        "title": "Sujets liés"
+    },
+    "Personnes compétentes (Aura)": {
+        "title": "Personnes Compétentes"
+    },
+    "Feed Detail (Widget)": {
+        "Title": "Détail flux\t\t",
+        "NavTitle": "Détail flux\t\t"
+    },
+    "Détail de l'élément du fil (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Question Detail (Widget)": {
+        "Title": "Détail Question\t\t",
+        "NavTitle": "Détail Question\t\t"
+    },
+    "Logo de la communauté (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "3794820180": {
+        "HTML": "Rejoignez la communauté pour recevoir une information et un service client personnalisés.\t\t"
+    },
+    "Content Block (Bloc de contenu)": {
+        "HTML": "Rejoignez la communauté pour recevoir une information et un service client personnalisés.\t\t"
+    },
+    "Auto-inscription (Aura)": {
+        "submitButtonLabel": "Soumettre",
+        "lastnameLabel": "Nom",
+        "firstnameLabel": "Prénom"
+    },
+    "Connexion sociale (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "1991457908": {
+        "HTML": "<span>REINITIALISER LE MOT DE PASSE<\/span>\t\t"
+    },
+    "3894024920": {
+        "HTML": "<p>Merci d'entrer l'adresse email que vous avez utilisé lors de la création de votre compte. Un email sera envoyé à cette adresse avec les instructions pour réinitialiser votre mot de passe.<\/p>\t\t"
+    },
+    "Mot de passe oublié (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Changer le mot de passe (Aura)": {
+        "submitButtonLabel": "Soumettre",
+        "newPasswordLabel": "Nouveau mot de passe",
+        "confirmPasswordLabel": "Confirmer le mot de passe",
+        "currentPasswordLabel": "Mot de passe actuel"
+    },
+    "Lanceur d'application (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "3621325578": {
+        "HTML": "\n    <p>MAINTENANT, VERIFIEZ VOTRE EMAIL<\/p>\n  \t\t"
+    },
+    "983793454": {
+        "HTML": "\n    <p>Vérifiez le compte email associé à votre compte pour les instructions de réinitialisation de mot de passe. N'oubliez pas de regarder dans le dossier spam, ou sont parfois envoyés les messages automatisés. <\/p>\n    <p> Si vous ne pouvez toujours pas vous connecter, contactez votre administrateur.<\/p>\t\t\n"
+    },
+    "En-tête du profil utilisateur (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Détail du profil utilisateur (Aura)": {
+        "AuraAttributes": "\t\t"
+    },
+    "Formulaire de connexion (Aura)": {
+        "usernameLabel": "Nom d'utilisateur"
+    },
+    "Lien de connexion de l'employé (Aura)": {
+        "employeeLoginLinkLabel": "Vous êtes un employé? Connexion ici"
+    },
+    "Self Register (Widget)": {
+        "Title": "Auto-Inscription\t\t",
+        "NavTitle": "Auto-Inscription\t\t"
+    },
+    "Forgot Password (Widget)": {
+        "Title": "Mot de passe Oublié\t\t",
+        "NavTitle": "Mot de passe Oublié\t\t"
+    },
+    "Password Reset Information (Widget)": {
+        "Title": "Informations Réinitialsation Mot de Passe\t\t",
+        "NavTitle": "Informations Réinitialsation Mot de Passe\t\t"
+    },
+    "Login Home (Widget)": {
+        "Title": "Accueil Connexion\t\t",
+        "NavTitle": "Accueil Connexion\t\t"
+    }
+}
