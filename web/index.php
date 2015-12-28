@@ -1,3 +1,20 @@
+<?php
+if($_SERVER['SERVER_NAME']=="localhost")die('localhost')$jsons=array_diff(scandir("json"), array('..', '.'));
+else {
+  $dbopts = parse_url(getenv('DATABASE_URL'));
+  $dsn = 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"]
+    . ";user=".$dbopts["user"]
+    . ";port=".$dbopts["port"]
+    . ";sslmode=require;"
+    . "password=".$dbopts["pass"];
+
+$db = new PDO($dsn);
+$query = "SELECT properties, language, JSON FROM JSON WHERE Status='Online'";
+$result = $db->query($query);
+$jsons=$result->fetchAll(PDO::FETCH_ASSOC);
+}
+?>
+
 <html>
 <head>
   <meta charset="UTF-8">
@@ -129,10 +146,9 @@
           <tr>
         </thead>
 <?php
-$jsons=array_diff(scandir("json"), array('..', '.'));
 foreach($jsons as $json){
-  $prop=strstr($json,'-',true);
-  $target=ltrim(strrchr($json,'-'),'-');
+  if($_SERVER['SERVER_NAME']=="localhost"){$prop=strstr($json,'-',true);$target=ltrim(strrchr($json,'-'),'-');}
+  else{$prop=$json['properties'];$target=$json['language'];}
   echo '  <tr class="slds-hint-parent">
         <td data-label="Select" >
           <div class="slds-form-element__control">
@@ -244,10 +260,10 @@ foreach($jsons as $json){
 
 
 <?php
-$jsons=array_diff(scandir("json"), array('..', '.'));
+
 foreach($jsons as $json){
-  $prop=strstr($json,'-',true);
-  $target=ltrim(strrchr($json,'-'),'-');
+  if($_SERVER['SERVER_NAME']=="localhost"){$prop=strstr($json,'-',true);$target=ltrim(strrchr($json,'-'),'-');$jsonfile=file_get_contents("json/".$json);}
+  else{$prop=$json['properties'];$target=$json['language'];$jsonfile=$json['JSON'];}
   echo '  <div id="'.$json.'" style="display:none">
     <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
       <div class="slds-modal__container">
@@ -264,7 +280,7 @@ foreach($jsons as $json){
           <div>
             <div class="slds-form-element">
               <div class="slds-form-element__control">
-            <textarea  class="slds-textarea" placeholder="" rows="20" >'. file_get_contents("json/".$json).'</textarea>
+            <textarea  class="slds-textarea" placeholder="" rows="20" >'. $jsonfile.'</textarea>
             </div>
             </div>
           </div>
