@@ -151,8 +151,8 @@ foreach($jsons as $json){
   echo '  <tr class="slds-hint-parent">
         <td data-label="Select" >
           <div class="slds-form-element__control">
-            <label class="slds-radio" for="baseLanguage'.$json.'">
-              <input type="radio" name="baseLanguage" id="baseLanguage'.$json.'" value="'.$json['id'].'"/>
+            <label class="slds-radio" for="baseLanguage'.$json['id'].'">
+              <input type="radio" name="baseLanguage" id="baseLanguage'.$json['id'].'" value="'.$json['id'].'"/>
               <span class="slds-radio--faux"></span>
               <span class="slds-form-element__label"></span>
             </label>
@@ -161,7 +161,7 @@ foreach($jsons as $json){
         <td data-label="Properties language">'.$prop.'</td>
         <td data-label="Content Target language">'.$target.'</td>
         <td data-label="see JSON">
-          <button class="slds-button" onclick="document.getElementById(\''.$json.'\').style.display=\'block\';return false;">
+          <button class="slds-button" onclick="document.getElementById(\'thisid'.$json['id'].'\').style.display=\'block\';return false;">
           <svg aria-hidden="true" class="slds-icon slds-icon--small" style="fill:#54698d">
             <use xlink:href="icons/utility-sprite/svg/symbols.svg#search"></use>
           </svg>
