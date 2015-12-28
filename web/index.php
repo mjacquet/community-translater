@@ -5,9 +5,7 @@ ini_set("display_errors", 1);
 
 $db = new PDO($dsn);
 $query = "SELECT properties, language, JSON FROM JSON WHERE Status='Online'";
-$result = $db->query($query);
-print_r($result);
-$jsons=$result->fetchAll(PDO::FETCH_ASSOC);
+$jsons = $db->query($query)->fetchAll();
 print_r($jsons);
 
 ?>
