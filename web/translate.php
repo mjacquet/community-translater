@@ -10,6 +10,7 @@ else die('you need to supply a file');
 if(isset($_POST['baseLanguage']) && $_POST['baseLanguage']!="custom")$trans=json_decode(file_get_contents('json/'.$_POST['baseLanguage']),true);
 elseif(isset($_POST['baseLanguage']) && $_POST['baseLanguage']=="custom")$trans=json_decode($_POST['custom'],true);
 else $trans=json_decode(file_get_contents('json/EN-to-FR'),true);
+if($trans==null)die("FATAL ERROR: decoding JSON failed.");
 
 //print_r($trans);
 
