@@ -1,15 +1,30 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
+
 if (!empty($_FILES))
 {
   $xml=simplexml_load_file($_FILES['thefile']['tmp_name']) or die("Error: Cannot create object");
 }
 else die('you need to supply a file');
+$dsn = 'pgsql:dbname=d4n2cm2s7mu2bf;host=ec2-54-195-252-202.eu-west-1.compute.amazonaws.com;user=avlzllavitgncj;port=5432;password=qkxXg644DnQzuBhxCSxgCPz4zx';
+try
+{
+  $db = new PDO($dsn);
+}
+catch(PDOException $pe)
+{
+  die('Connection error, because: ' .$pe->getMessage());
+}
 
-if(isset($_POST['baseLanguage']) && $_POST['baseLanguage']!="custom")$trans=json_decode(file_get_contents('json/'.$_POST['baseLanguage']),true);
+
+if(isset($_POST['baseLanguage']) && $_POST['baseLanguage']!="custom"){
+  $query = "SELECT * FROM translations WHERE id=".$_POST['baseLanguage'];
+  $transl = $db->query($query)->fetchAll();
+  $trans=json_decode($transl[0]['json']),true);
+}
 elseif(isset($_POST['baseLanguage']) && $_POST['baseLanguage']=="custom")$trans=json_decode($_POST['custom'],true);
-else $trans=json_decode(file_get_contents('json/EN-to-FR'),true);
+
 if($trans==null)die("FATAL ERROR: decoding JSON failed.");
 
 //print_r($trans);
