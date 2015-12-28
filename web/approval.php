@@ -7,26 +7,40 @@ if(isset($_GET['action'])&&isset($_GET['file'])){
   // Example request
   $client = new Postmark\PostmarkClient("1855200c-7830-4422-a59a-4835d3a6acd0");
 $json=$_GET['file'];
-if($_GET['action']==approve){
-  rename("json-to-approve/".$json,"json/".$json);
 
-  $sendResult = $client->sendEmail(
+$dsn = 'pgsql:dbname=d4n2cm2s7mu2bf;host=ec2-54-195-252-202.eu-west-1.compute.amazonaws.com;user=avlzllavitgncj;port=5432;password=qkxXg644DnQzuBhxCSxgCPz4zx';
+try
+{
+  $db = new PDO($dsn);
+}
+catch(PDOException $pe)
+{
+  die('Connection error, because: ' .$pe->getMessage());
+}
+
+if($_GET['action']==approve){
+  $query = 'UPDATE "translations" SET "status"=\'Online\' WHERE "id"=\''.$_GET['file'].'\'';
+  $result = $db->exec($query);
+ if($result==1)$sendResult = $client->sendEmail(
     "mjacquet@salesforce.com",
     "mjacquet@gmail.com",
     "Approved translation Community Translater",
     $_GET['file']
   );
+  else die('ERROR!');
 }
 
 if($_GET['action']==reject){
-  unlink("json-to-approve/".$json);
+  $query = 'UPDATE "translations" SET "status"=\'Rejected\' WHERE "id"=\''.$_GET['file'].'\'';
+  $result = $db->exec($query);
 
-  $sendResult = $client->sendEmail(
+  if($result==1)$sendResult = $client->sendEmail(
     "mjacquet@salesforce.com",
     "mjacquet@gmail.com",
     "Rejected translation Community Translater",
     $_GET['file']
   );
+  else die('ERROR!');
 }
 
 
@@ -89,11 +103,24 @@ if($_GET['action']==reject){
 
 
 <?php
-$jsons=array_diff(scandir("json-to-approve"), array('..', '.'));
-foreach($jsons as $json){
-  $prop=strstr($json,'-',true);
-  $target=ltrim(strrchr($json,'-'),'-');
-  $jsonstr=file_get_contents("json-to-approve/".$json);
+
+$dsn = 'pgsql:dbname=d4n2cm2s7mu2bf;host=ec2-54-195-252-202.eu-west-1.compute.amazonaws.com;user=avlzllavitgncj;port=5432;password=qkxXg644DnQzuBhxCSxgCPz4zx';
+try
+{
+  $db = new PDO($dsn);
+}
+catch(PDOException $pe)
+{
+  die('Connection error, because: ' .$pe->getMessage());
+}
+
+$query = "SELECT * FROM translations WHERE status='Submitted'";
+$jsons = $db->query($query)->fetchAll();
+foreach($jsons as $ojson){
+  $json=$ojson['id'];
+  $prop=$ojson['properties'];
+  $target=$ojson['language'];
+  $jsonstr=$ojson['json'];
   echo '<div class="slds-card" style="padding:10px;">
     <div class="slds-card__header slds-grid">
       <div class="slds-media slds-media--center slds-has-flexi-truncate">
@@ -103,7 +130,7 @@ foreach($jsons as $json){
           </svg>
         </div>
         <div class="slds-media__body">
-          <h2 class="slds-text-heading--small slds-truncate">'.$json.'</h2>
+          <h2 class="slds-text-heading--small slds-truncate">'.$ojson['properties'].' to '.$ojson['language'].'</h2>
         </div>
         <div class="slds-col slds-no-flex slds-align-bottom">
          <div class="slds-button-group" role="group">
