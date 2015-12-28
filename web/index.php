@@ -152,7 +152,7 @@ foreach($jsons as $json){
         <td data-label="Select" >
           <div class="slds-form-element__control">
             <label class="slds-radio" for="baseLanguage'.$json.'">
-              <input type="radio" name="baseLanguage" id="baseLanguage'.$json.'" value="'.$json.'"/>
+              <input type="radio" name="baseLanguage" id="baseLanguage'.$json.'" value="'.$json['id'].'"/>
               <span class="slds-radio--faux"></span>
               <span class="slds-form-element__label"></span>
             </label>
@@ -264,12 +264,12 @@ foreach($jsons as $json){
   $prop=$json['properties'];
   $target=$json['language'];
   $jsonfile=$json['json'];
-  echo '  <div id="'.$json.'" style="display:none">
+  echo '  <div id="thisid'.$json['id'].'" style="display:none">
     <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
       <div class="slds-modal__container">
         <div class="slds-modal__header">
-          <h2 class="slds-text-heading--medium">'.$json.' JSON</h2>
-          <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="document.getElementById(\''.$json.'\').style.display=\'none\';">
+          <h2 class="slds-text-heading--medium">'.$prop.' to  '.$target.' JSON</h2>
+          <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="document.getElementById(\'thisid'.$json['id'].'\').style.display=\'none\';">
             <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large">
               <use xlink:href="icons/action-sprite/svg/symbols.svg#close"></use>
             </svg>
@@ -287,7 +287,7 @@ foreach($jsons as $json){
         </div>
         <div class="slds-modal__footer">
           <div class="slds-x-small-buttons--horizontal">
-            <button class="slds-button slds-button--neutral slds-button--brand" onclick="document.getElementById(\''.$json.'\').style.display=\'none\';">Close</button>
+            <button class="slds-button slds-button--neutral slds-button--brand" onclick="document.getElementById(\'thisid'.$json['id'].'\').style.display=\'none\';">Close</button>
           </div>
         </div>
       </div>
