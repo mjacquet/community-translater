@@ -1,18 +1,13 @@
 <?php
-if($_SERVER['SERVER_NAME']=="localhost")die('localhost')$jsons=array_diff(scandir("json"), array('..', '.'));
-else {
-  $dbopts = parse_url(getenv('DATABASE_URL'));
-  $dsn = 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"]
-    . ";user=".$dbopts["user"]
-    . ";port=".$dbopts["port"]
-    . ";sslmode=require;"
-    . "password=".$dbopts["pass"];
+  $dsn = 'pgsql:dbname=d4n2cm2s7mu2bf;host=ec2-54-195-252-202.eu-west-1.compute.amazonaws.com;user=avlzllavitgncj;port=5432;password=qkxXg644DnQzuBhxCSxgCPz4zx';
 
 $db = new PDO($dsn);
 $query = "SELECT properties, language, JSON FROM JSON WHERE Status='Online'";
 $result = $db->query($query);
+print_r($result);
 $jsons=$result->fetchAll(PDO::FETCH_ASSOC);
-}
+print_r($jsons);
+
 ?>
 
 <html>
@@ -147,8 +142,8 @@ $jsons=$result->fetchAll(PDO::FETCH_ASSOC);
         </thead>
 <?php
 foreach($jsons as $json){
-  if($_SERVER['SERVER_NAME']=="localhost"){$prop=strstr($json,'-',true);$target=ltrim(strrchr($json,'-'),'-');}
-  else{$prop=$json['properties'];$target=$json['language'];}
+  $prop=$json['properties'];
+  $target=$json['language'];
   echo '  <tr class="slds-hint-parent">
         <td data-label="Select" >
           <div class="slds-form-element__control">
@@ -262,8 +257,9 @@ foreach($jsons as $json){
 <?php
 
 foreach($jsons as $json){
-  if($_SERVER['SERVER_NAME']=="localhost"){$prop=strstr($json,'-',true);$target=ltrim(strrchr($json,'-'),'-');$jsonfile=file_get_contents("json/".$json);}
-  else{$prop=$json['properties'];$target=$json['language'];$jsonfile=$json['JSON'];}
+  $prop=$json['properties'];
+  $target=$json['language'];
+  $jsonfile=$json['JSON'];
   echo '  <div id="'.$json.'" style="display:none">
     <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
       <div class="slds-modal__container">
