@@ -26,7 +26,7 @@ if(isset($_POST['baseLanguage']) && $_POST['baseLanguage']!="custom"){
   $trans=json_decode($transl[0]['json']),true);
 }
 elseif(isset($_POST['baseLanguage']) && $_POST['baseLanguage']=="custom")$trans=json_decode($_POST['custom'],true);
-
+print_r($trans);
 if($trans==null)die("FATAL ERROR: decoding JSON failed.");
 
 //print_r($trans);
