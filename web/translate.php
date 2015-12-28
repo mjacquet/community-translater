@@ -22,10 +22,8 @@ catch(PDOException $pe)
 
 if(isset($_POST['baseLanguage']) && $_POST['baseLanguage']!="custom"){
   $query = "SELECT * FROM translations WHERE id='".$_POST['baseLanguage']."'";
-  print_r($query);
   $transl = $db->query($query)->fetchAll();
-  print_r($transl);
-  $trans=json_decode($transl[0]['json']),true);
+  $trans=json_decode($transl[0]['json'],true);
 }
 elseif(isset($_POST['baseLanguage']) && $_POST['baseLanguage']=="custom")$trans=json_decode($_POST['custom'],true);
 
