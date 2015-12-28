@@ -7,13 +7,27 @@ if(isset($_POST['properties'])&&isset($_POST['content'])&&isset($_POST['custom']
 // Example request
 $client = new Postmark\PostmarkClient("1855200c-7830-4422-a59a-4835d3a6acd0");
 
-$sendResult = $client->sendEmail(
+//file_put_contents('json-to-approve/'.$_POST['properties'].'-to-'.$_POST['content'],$_POST['custom']);
+$dsn = 'pgsql:dbname=d4n2cm2s7mu2bf;host=ec2-54-195-252-202.eu-west-1.compute.amazonaws.com;user=avlzllavitgncj;port=5432;password=qkxXg644DnQzuBhxCSxgCPz4zx';
+try
+{
+  $db = new PDO($dsn);
+}
+catch(PDOException $pe)
+{
+  die('Connection error, because: ' .$pe->getMessage());
+}
+$query = 'INSERT INTO "translations"("properties", "language", "status", "json") VALUES(\''.$_POST['properties'].'\', \''.$_POST['content'].'\', \'Submitted\', \''.$_POST['custom'].'\')';
+$result = $db->exec($query);
+
+if($result==1)$sendResult = $client->sendEmail(
   "mjacquet@salesforce.com",
   "mjacquet@gmail.com",
   "Nouvelle demande d'ajout Community Translater",
   $_POST['properties']." -> ".$_POST['content']."   ".$_POST['custom']
 );
-file_put_contents('json-to-approve/'.$_POST['properties'].'-to-'.$_POST['content'],$_POST['custom']);
+else die("SUBMISSION ERROR");
+
 echo '<div class="slds-notify slds-notify--success slds-theme--alert-texture" role="alert">
   <span class="slds-assistive-text">Info</span>
   <button class="slds-button slds-button--icon-inverse close slds-icon--small">
