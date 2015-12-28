@@ -10,8 +10,8 @@ ini_set("display_errors", 1);
   {
   	die('Connection error, because: ' .$pe->getMessage());
   }
-   
-$query = "SELECT properties, language, JSON FROM JSON WHERE Status='Online'";
+
+$query = "SELECT * FROM translations WHERE status='Online'";
 $jsons = $db->query($query)->fetchAll();
 print_r($jsons);
 
