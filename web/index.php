@@ -2,8 +2,15 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
   $dsn = 'pgsql:dbname=d4n2cm2s7mu2bf;host=ec2-54-195-252-202.eu-west-1.compute.amazonaws.com;user=avlzllavitgncj;port=5432;password=qkxXg644DnQzuBhxCSxgCPz4zx';
-
-$db = new PDO($dsn);
+  try
+  {
+  	$db = new PDO($dsn);
+  }
+  catch(PDOException $pe)
+  {
+  	die('Connection error, because: ' .$pe->getMessage());
+  }
+   
 $query = "SELECT properties, language, JSON FROM JSON WHERE Status='Online'";
 $jsons = $db->query($query)->fetchAll();
 print_r($jsons);
