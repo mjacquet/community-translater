@@ -8,7 +8,8 @@ if(isset($_POST['properties'])&&isset($_POST['content'])&&isset($_POST['custom']
 $client = new Postmark\PostmarkClient("1855200c-7830-4422-a59a-4835d3a6acd0");
 
 //file_put_contents('json-to-approve/'.$_POST['properties'].'-to-'.$_POST['content'],$_POST['custom']);
-$dsn = 'pgsql:dbname=dcchj8eabfgcpk;host=ec2-54-217-238-100.eu-west-1.compute.amazonaws.com;user=cpdwgioaplythe;port=5432;password=VVsW-j66_i_JW5pSDOc_ACV6S_';
+extract(parse_url($_ENV["DATABASE_URL"]));
+$dsn = 'pgsql:dbname='.substr($path, 1).';host='.$host.';user='.$user.';port=5432;password='.$pass;
 try
 {
   $db = new PDO($dsn);

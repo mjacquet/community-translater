@@ -1,5 +1,6 @@
 <?php
-$dsn = 'pgsql:dbname=dcchj8eabfgcpk;host=ec2-54-217-238-100.eu-west-1.compute.amazonaws.com;user=cpdwgioaplythe;port=5432;password=VVsW-j66_i_JW5pSDOc_ACV6S_';
+extract(parse_url($_ENV["DATABASE_URL"]));
+$dsn = 'pgsql:dbname='.substr($path, 1).';host='.$host.';user='.$user.';port=5432;password='.$pass;
 try
   {
   	$db = new PDO($dsn);

@@ -1,4 +1,15 @@
 <?php
+extract(parse_url($_ENV["DATABASE_URL"]));
+$dsn = 'pgsql:dbname='.substr($path, 1).';host='.$host.';user='.$user.';port=5432;password='.$pass;
+try
+{
+  $db = new PDO($dsn);
+}
+catch(PDOException $pe)
+{
+  die('Connection error, because: ' .$pe->getMessage());
+}
+
 
 if(isset($_GET['action'])&&isset($_GET['file'])){
   require_once('../vendor/autoload.php');
@@ -8,17 +19,7 @@ if(isset($_GET['action'])&&isset($_GET['file'])){
   $client = new Postmark\PostmarkClient("1855200c-7830-4422-a59a-4835d3a6acd0");
 $json=$_GET['file'];
 
-postgres://cpdwgioaplythe:VVsW-j66_i_JW5pSDOc_ACV6S_@:5432/dcchj8eabfgcpk
 
-$dsn = 'pgsql:dbname=dcchj8eabfgcpk;host=ec2-54-217-238-100.eu-west-1.compute.amazonaws.com;user=cpdwgioaplythe;port=5432;password=VVsW-j66_i_JW5pSDOc_ACV6S_';
-try
-{
-  $db = new PDO($dsn);
-}
-catch(PDOException $pe)
-{
-  die('Connection error, because: ' .$pe->getMessage());
-}
 
 if($_GET['action']==approve){
   $query = 'UPDATE "translations" SET "status"=\'Online\' WHERE "id"=\''.$_GET['file'].'\'';
@@ -106,15 +107,6 @@ if($_GET['action']==reject){
 
 <?php
 
-$dsn = 'pgsql:dbname=dcchj8eabfgcpk;host=ec2-54-217-238-100.eu-west-1.compute.amazonaws.com;user=cpdwgioaplythe;port=5432;password=VVsW-j66_i_JW5pSDOc_ACV6S_';
-try
-{
-  $db = new PDO($dsn);
-}
-catch(PDOException $pe)
-{
-  die('Connection error, because: ' .$pe->getMessage());
-}
 
 $query = "SELECT * FROM translations WHERE status='Submitted'";
 $jsons = $db->query($query)->fetchAll();
