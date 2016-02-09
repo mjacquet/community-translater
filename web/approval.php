@@ -106,7 +106,7 @@ if($_GET['action']==reject){
 
 <?php
 
-$dsn = 'pgsql:dbname=d4n2cm2s7mu2bf;host=ec2-54-195-252-202.eu-west-1.compute.amazonaws.com;user=avlzllavitgncj;port=5432;password=qkxXg644DnQzuBhxCSxgCPz4zx';
+$dsn = 'pgsql:dbname=dcchj8eabfgcpk;host=ec2-54-217-238-100.eu-west-1.compute.amazonaws.com;user=cpdwgioaplythe;port=5432;password=VVsW-j66_i_JW5pSDOc_ACV6S_';
 try
 {
   $db = new PDO($dsn);
@@ -155,6 +155,8 @@ foreach($jsons as $ojson){
 
 }
 ?>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
