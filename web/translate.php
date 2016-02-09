@@ -7,7 +7,7 @@ if (!empty($_FILES))
   $xml=simplexml_load_file($_FILES['thefile']['tmp_name']) or die("Error: Cannot create object");
 }
 else die('you need to supply a file');
-$dsn = 'pgsql:dbname=d4n2cm2s7mu2bf;host=ec2-54-195-252-202.eu-west-1.compute.amazonaws.com;user=avlzllavitgncj;port=5432;password=qkxXg644DnQzuBhxCSxgCPz4zx';
+$dsn = 'pgsql:dbname=dcchj8eabfgcpk;host=ec2-54-217-238-100.eu-west-1.compute.amazonaws.com;user=cpdwgioaplythe;port=5432;password=VVsW-j66_i_JW5pSDOc_ACV6S_';
 try
 {
   $db = new PDO($dsn);
