@@ -1,0 +1,84 @@
+<apex:page applyHtmlTag="false" applyBodyTag="false" docType="html" showHeader="false">
+    <html>
+        <head>
+            <meta charset="UTF-8"/>
+            <title>Bookmark Me</title>
+        </head>
+
+        <body>
+            <div id="formContainer">
+                <form id="form" method="GET">
+                    <label for="communityUrl">Community Url</label> <input type="text" id="communityUrl" name="communityUrl" size="60" /> (https://mycommunity.force.com/mydomain <b>without trailing slash!</b>)<br/>
+                    <label for="faviconUrl">Favicon url</label> <input type="text" id="faviconUrl" name="faviconUrl" size="60" /> (Full absolute path, https)<br/>
+                    <label for="un">Username</label> <input type="text" id="un" name="un" size="40" /><br/>
+                    <label for="pw">Password</label> <input type="text" id="pw" name="pw" size="40" /><br/>
+                    <label for="doNotRedirect">Prepare for mobile</label> <input type="checkbox" id="doNotRedirect" name="doNotRedirect" /> (Fill the form on your desktop computer, it's easier, check this, submit, then copy the browser url field and send to yourself by email. Click the link from the email on the mobile, submit, save to homescreen, and you're good to go.)<br/>
+                    <button style="font-size: 20px;">SUBMIT</button>
+                </form>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </body>
+
+        <script>
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+                                                     function(m,key,value) {
+                                                         vars[key] = value;
+                                                     });
+            return vars;
+        }
+
+        function removeForm() {
+            document.getElementById('formContainer').removeChild(document.getElementById('form'));
+        }
+
+        function tryRedirect() {
+            var urlVars = getUrlVars();
+            // if no vars, do nothing
+            if (!urlVars.communityUrl) {
+                return;
+            }
+            var communityUrl = decodeURIComponent(urlVars.communityUrl);
+            var faviconUrl = decodeURIComponent(urlVars.faviconUrl);
+            var un = decodeURIComponent(urlVars.un);
+            var pw = decodeURIComponent(urlVars.pw);
+            var doNotRedirect = decodeURIComponent(urlVars.doNotRedirect);
+            // if do not redirect is checked, populate the form only
+            // goal: fill everything on your desktop computer, easier, check "Prepare for mobile" then copy the link and send by email
+            // then click from the email on the mobile, submit, and you're good to go.
+            if(doNotRedirect == 'on') {
+                document.getElementById('communityUrl').value = communityUrl;
+                document.getElementById('faviconUrl').value = faviconUrl;
+                document.getElementById('un').value = un;
+                document.getElementById('pw').value = pw;
+                return;
+            }
+
+            removeForm();
+            var referrer = '' + document.referrer;
+            // if direct call, assume call from bookmark, so do redirection
+            if (referrer == '') {
+                window.location = communityUrl + '/login/?un=' + un + '&pw=' + pw;
+            } else {
+                var head = document.getElementsByTagName('head')[0];
+                var meta = document.createElement("meta");
+                meta.setAttribute("name", "apple-mobile-web-app-capable");
+                meta.setAttribute("content", "yes");
+                head.appendChild(meta);
+                var link = document.createElement("link");
+                link.setAttribute("rel", "apple-touch-icon");
+                link.setAttribute("href", faviconUrl);
+                head.appendChild(link);
+                var body = document.getElementsByTagName('body')[0];
+                var h1 = document.createElement('h1');
+                h1.appendChild(document.createTextNode('Bookmark me now!'));
+                body.appendChild(h1);
+            }
+        }
+        tryRedirect();
+        </script>
+    </html>
+</apex:page>
