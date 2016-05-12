@@ -18,7 +18,7 @@ catch(PDOException $pe)
 {
   die('Connection error, because: ' .$pe->getMessage());
 }
-$query = 'INSERT INTO "translations"("properties", "language", "status", "json") VALUES(\''.$_POST['properties'].'\', \''.$_POST['content'].'\', \'Submitted\', \''.$db->quote($_POST['custom']).'\')';
+$query = 'INSERT INTO "translations"("properties", "language", "status", "json") VALUES(\''.$_POST['properties'].'\', \''.$_POST['content'].'\', \'Submitted\', '.$db->quote($_POST['custom']).')';
 $result = $db->exec($query);
 
 if($result==1)$sendResult = $client->sendEmail(
