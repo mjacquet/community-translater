@@ -25,7 +25,7 @@ if($result==1)$sendResult = $client->sendEmail(
   "mjacquet@salesforce.com",
   "mjacquet@gmail.com",
   "Nouvelle demande d'ajout Community Translater",
-  $_POST['properties']." -> ".$_POST['content']."   ".json_encode(json_decode($_POST['custom']),JSON_PRETTY_PRINT)
+  "https://community-translater.herokuapp.com/approval.php <br>".$_POST['properties']." -> ".$_POST['content']."  <br> ".$_POST['custom']
 );
 else die("SUBMISSION ERROR".$query);
 
