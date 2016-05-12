@@ -135,7 +135,7 @@ foreach($jsons as $ojson){
         </div>
         <div class="slds-col slds-no-flex slds-align-bottom">
          <div class="slds-button-group" role="group">
-           <button class="slds-button slds-button--neutral" onclick="window.location.assign(\'approval.php?action=approve&properties='.$prop.'&target='.$target.'file='.$json.'\')">Approve</button>
+           <button class="slds-button slds-button--neutral" onclick="window.location.assign(\'approval.php?action=approve&properties='.$prop.'&target='.$target.'&file='.$json.'\')">Approve</button>
            <button class="slds-button slds-button--neutral" onclick="window.location.assign(\'approval.php?action=reject&file='.$json.'\')">Reject</button>
          </div>
        </div>
