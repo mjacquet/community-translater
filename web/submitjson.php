@@ -27,7 +27,7 @@ if($result==1)$sendResult = $client->sendEmail(
   "Nouvelle demande d'ajout Community Translater",
   $_POST['properties']." -> ".$_POST['content']."   ".$_POST['custom']
 );
-else die("SUBMISSION ERROR");
+else die("SUBMISSION ERROR"+$query);
 
 echo '<div class="slds-notify slds-notify--success slds-theme--alert-texture" role="alert">
   <span class="slds-assistive-text">Info</span>
