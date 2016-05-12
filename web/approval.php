@@ -24,13 +24,18 @@ $json=$_GET['file'];
 if($_GET['action']==approve){
   $query = 'UPDATE "translations" SET "status"=\'Online\' WHERE "id"=\''.$_GET['file'].'\'';
   $result = $db->exec($query);
- if($result==1)$sendResult = $client->sendEmail(
+ if($result==1){
+    $sendResult = $client->sendEmail(
     "mjacquet@salesforce.com",
     "mjacquet@gmail.com",
     "Approved translation Community Translater",
     $_GET['file']
-  );
+    );
+    $query = 'UPDATE "translations" SET "status"=\'Deprecated\' WHERE "properties"=\''.$_GET['properties'].'\' AND "language"=\''.$_GET['target'].'\' AND "id"!=\''.$_GET['file'].'\'';
+    $result = $db->exec($query);
+  }
   else die('ERROR!');
+
 }
 
 if($_GET['action']==reject){
@@ -115,6 +120,8 @@ foreach($jsons as $ojson){
   $prop=$ojson['properties'];
   $target=$ojson['language'];
   $jsonstr=$ojson['json'];
+
+
   echo '<div class="slds-card" style="padding:10px;">
     <div class="slds-card__header slds-grid">
       <div class="slds-media slds-media--center slds-has-flexi-truncate">
@@ -128,7 +135,7 @@ foreach($jsons as $ojson){
         </div>
         <div class="slds-col slds-no-flex slds-align-bottom">
          <div class="slds-button-group" role="group">
-           <button class="slds-button slds-button--neutral" onclick="window.location.assign(\'approval.php?action=approve&file='.$json.'\')">Approve</button>
+           <button class="slds-button slds-button--neutral" onclick="window.location.assign(\'approval.php?action=approve&properties='.$prop.'&target='.$target.'file='.$json.'\')">Approve</button>
            <button class="slds-button slds-button--neutral" onclick="window.location.assign(\'approval.php?action=reject&file='.$json.'\')">Reject</button>
          </div>
        </div>
