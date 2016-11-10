@@ -1,4 +1,5 @@
 <?php
+//test pipeline
 extract(parse_url($_ENV["DATABASE_URL"]));
 $dsn = 'pgsql:dbname='.substr($path, 1).';host='.$host.';user='.$user.';port=5432;password='.$pass;
 try
