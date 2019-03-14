@@ -1,3 +1,5 @@
+ <?php
+ header("Access-Control-Allow-Origin: *");?>
 <div id="block-bi-edito-bi-edito-footer-text" class="block block-bi-edito first last odd"> 
   <div class="container">
   <div class="edito-presentation">
