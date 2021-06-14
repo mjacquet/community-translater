@@ -105,7 +105,7 @@ $jsons = $db->query($query)->fetchAll();
     </div>
     <div class="slds-card__body" >
       <div class="slds-form--inline" style="padding:10px;background:white;">
-        <label class="slds-form-element__label" for="name">Upload the XML file you got from site.com (Languages --> Export for translation)</label>
+        <label class="slds-form-element__label" for="name">Upload the XML file you got from Community Builder (Languages --> Export for translation)</label>
 
         <div class="slds-form-element">
             <div class="fileUpload slds-button slds-button--brand">
